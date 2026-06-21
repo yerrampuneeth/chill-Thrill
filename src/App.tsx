@@ -85,78 +85,148 @@ const Hero = () => {
   });
   
   const y = useTransform(scrollYProgress, [0, 1], [0, 200]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   return (
-    <section ref={containerRef} className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section ref={containerRef} className="relative min-h-[110vh] flex items-center justify-center overflow-hidden pt-28 pb-16 lg:pb-24">
       {/* Background Elements */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 blur-[120px] rounded-full animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-accent/5 blur-[120px] rounded-full"></div>
+        <div className="absolute top-1/4 -left-20 w-[500px] h-[500px] bg-primary/10 blur-[130px] rounded-full animate-pulse-slow"></div>
+        <div className="absolute bottom-1/4 -right-20 w-[550px] h-[550px] bg-accent/5 blur-[120px] rounded-full"></div>
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-[0.03]"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-        <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <span className="inline-flex items-center gap-2 py-2 px-5 rounded-full bg-accent/5 border border-accent/10 text-accent font-bold text-xs tracking-[0.3em] uppercase mb-8">
-              <Zap size={14} className="text-primary" />
-              The Arena of Champions
-            </span>
-          </motion.div>
-
-          <motion.h1 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="text-7xl md:text-9xl font-black text-accent tracking-tighter leading-[0.85] mb-10"
-          >
-            UNLEASH <br />
-            <span className="text-gradient italic">THE THRILL.</span>
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="text-xl text-slate-600 mb-12 max-w-2xl mx-auto leading-relaxed font-medium"
-          >
-            Hanamkonda's most advanced sports destination. Premium turfs, professional lighting, and an atmosphere that breeds excellence.
-          </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-            <a 
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative bg-accent text-white px-10 py-5 rounded-2xl font-black text-lg overflow-hidden transition-all hover:pr-14"
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10 w-full">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-center">
+          {/* Left Text Content */}
+          <div className="lg:col-span-7 text-center lg:text-left">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
             >
-              <span className="relative z-10">START YOUR GAME</span>
-              <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={24} />
-            </a>
-            <a 
-              href="#services"
-              className="px-10 py-5 rounded-2xl font-black text-lg text-accent border-2 border-accent/10 hover:bg-accent hover:text-white transition-all"
+              <span className="inline-flex items-center gap-2 py-2 px-5 rounded-full bg-accent/5 border border-accent/10 text-accent font-bold text-xs tracking-[0.3em] uppercase mb-8">
+                <Zap size={14} className="text-neon animate-pulse" />
+                The Arena of Champions
+              </span>
+            </motion.div>
+
+            <motion.h1 
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              className="text-6xl sm:text-7xl xl:text-8xl font-black text-accent tracking-tighter leading-[0.85] mb-8"
             >
-              VIEW FACILITIES
-            </a>
-          </motion.div>
+              UNLEASH <br />
+              <span className="text-gradient italic">THE THRILL.</span>
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.4, duration: 1 }}
+              className="text-lg sm:text-xl text-slate-600 mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium"
+            >
+              Hanamkonda's most advanced sports destination. Premium multi-sports box turf, night match lighting, and delicious drive-in dining areas.
+            </motion.p>
+
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 sm:gap-6"
+            >
+              <a 
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative bg-accent text-white px-10 py-5 rounded-2xl font-black text-lg overflow-hidden transition-all hover:pr-14 w-full sm:w-auto text-center"
+              >
+                <span className="relative z-10">START YOUR GAME</span>
+                <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all" size={24} />
+              </a>
+              <a 
+                href="#services"
+                className="px-10 py-5 rounded-2xl font-black text-lg text-accent border-2 border-accent/10 hover:bg-accent hover:text-white transition-all w-full sm:w-auto text-center"
+              >
+                VIEW FACILITIES
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Right Image Deck (Aesthetic Sports & Cafe Collage) */}
+          <div className="lg:col-span-5 relative mt-12 lg:mt-0 px-4 sm:px-12 lg:px-0">
+            <div className="relative h-[480px] w-full">
+              {/* Image 1: Main Soccer Turf (Back) */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, rotate: -6 }}
+                animate={{ opacity: 1, scale: 1, rotate: -6 }}
+                transition={{ duration: 1, delay: 0.2 }}
+                whileHover={{ scale: 1.05, rotate: -3, zIndex: 30 }}
+                className="absolute top-4 left-4 w-4/5 h-[320px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/80 cursor-pointer group"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1200" 
+                  alt="Football Turf Arena" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white text-left">
+                  <span className="text-neon font-bold text-[10px] tracking-widest uppercase block mb-1">FACILITY</span>
+                  <span className="font-extrabold text-lg tracking-tight">FIFA Turf pitch</span>
+                </div>
+              </motion.div>
+
+              {/* Image 2: Box Cricket (Front Middle) */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.8, rotate: 6 }}
+                animate={{ opacity: 1, scale: 1, rotate: 6 }}
+                transition={{ duration: 1, delay: 0.4 }}
+                whileHover={{ scale: 1.05, rotate: 2, zIndex: 30 }}
+                className="absolute top-28 right-4 w-3/4 h-[280px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white/80 cursor-pointer group z-10"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1000" 
+                  alt="Box Cricket Arena" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 text-white text-left">
+                  <span className="text-neon font-bold text-[10px] tracking-widest uppercase block mb-1">LIVE BOX</span>
+                  <span className="font-extrabold text-lg tracking-tight">Cricket nets</span>
+                </div>
+              </motion.div>
+
+              {/* Image 3: Cozy Drive-In Diner (Front Overlapping) */}
+              <motion.div 
+                initial={{ opacity: 0, y: 100, scale: 0.8 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 1, delay: 0.6 }}
+                whileHover={{ scale: 1.05, zIndex: 30 }}
+                className="absolute bottom-4 left-1/4 -translate-x-12 w-2/3 h-[180px] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white/90 cursor-pointer group z-20"
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=1000" 
+                  alt="Drive-In Cafe Lounge" 
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  referrerPolicy="no-referrer"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-6 text-white text-left">
+                  <span className="text-neon font-bold text-[10px] tracking-widest uppercase block mb-1">CHILL ZONE</span>
+                  <span className="font-extrabold text-base tracking-tight">Gourmet Drive-in cafe</span>
+                </div>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Floating Stats */}
       <motion.div 
         style={{ y }}
-        className="absolute bottom-12 left-0 right-0 hidden lg:flex justify-center gap-20 px-12"
+        className="absolute bottom-12 left-0 right-0 hidden lg:flex justify-center gap-20 px-12 z-10"
       >
         {[
           { label: "PREMIUM TURFS", val: "04" },
@@ -176,34 +246,46 @@ const Hero = () => {
 const BentoGrid = () => {
   const services = [
     { 
-      title: "Box Cricket", 
-      image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=2067&auto=format&fit=crop", 
+      title: "Box Cricket Zone", 
+      image: "https://images.unsplash.com/photo-1531415074968-036ba1b575da?q=80&w=1000", 
       tag: "Most Popular",
+      price: "Starts from ₹800/hr",
       size: "lg" 
     },
     { 
-      title: "Football Turf", 
-      image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=2093&auto=format&fit=crop", 
-      tag: "FIFA Grade",
-      size: "md" 
-    },
-    { 
-      title: "Badminton", 
-      image: "https://images.unsplash.com/photo-1626225967045-9c76db7b6282?q=80&w=2070&auto=format&fit=crop", 
-      tag: "Indoor",
-      size: "md" 
-    },
-    { 
-      title: "Volleyball", 
-      image: "https://images.unsplash.com/photo-1592656094267-764a45160876?q=80&w=2070&auto=format&fit=crop", 
-      tag: "Pro Court",
-      size: "md" 
-    },
-    { 
-      title: "Refreshments", 
-      image: "https://images.unsplash.com/photo-1559925393-8be0ec41b50d?q=80&w=2071&auto=format&fit=crop", 
-      tag: "Relax",
+      title: "Football Turf Arena", 
+      image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1000", 
+      tag: "FIFA Grade Pitch",
+      price: "Starts from ₹1000/hr",
       size: "lg" 
+    },
+    { 
+      title: "Badminton Courts", 
+      image: "https://images.unsplash.com/photo-1626225967045-9c76db7b6282?q=80&w=1000", 
+      tag: "Pro Flooring",
+      price: "Starts from ₹400/hr",
+      size: "md" 
+    },
+    { 
+      title: "Volleyball Arena", 
+      image: "https://images.unsplash.com/photo-1592656094267-764a45160876?q=80&w=1000", 
+      tag: "Action Court",
+      price: "Starts from ₹600/hr",
+      size: "md" 
+    },
+    { 
+      title: "Table Tennis & Snooker", 
+      image: "https://images.unsplash.com/photo-1534158914592-062992fbe900?q=80&w=1000", 
+      tag: "Indoor Lounge",
+      price: "Starts from ₹300/hr",
+      size: "md" 
+    },
+    { 
+      title: "Drive-In Cafe & Live Screening Lounge", 
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1600", 
+      tag: "Hangout Hub",
+      price: "Chill with delicious gourmet bites & live matches!",
+      size: "full" 
     }
   ];
 
@@ -216,7 +298,7 @@ const BentoGrid = () => {
             whileInView={{ opacity: 1, x: 0 }}
             className="text-primary font-bold tracking-[0.4em] uppercase text-xs mb-4 block"
           >
-            Our Facilities
+            OUR WORLD-CLASS FACILITIES
           </motion.span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
@@ -224,7 +306,7 @@ const BentoGrid = () => {
             className="text-5xl md:text-7xl font-black tracking-tighter leading-none"
           >
             BUILT FOR <br />
-            <span className="text-neon italic">PERFORMANCE.</span>
+            <span className="text-neon italic">PERFORMANCE & CHILL.</span>
           </motion.h2>
         </div>
 
@@ -236,28 +318,42 @@ const BentoGrid = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
               className={`relative group rounded-[2.5rem] overflow-hidden ${
-                service.size === "lg" ? "md:col-span-3" : "md:col-span-2"
+                service.size === "lg" 
+                  ? "md:col-span-3 h-[300px]" 
+                  : service.size === "full" 
+                  ? "md:col-span-6 h-[320px] md:h-[350px]" 
+                  : "md:col-span-2 h-[300px]"
               }`}
             >
               <img 
                 src={service.image} 
                 alt={service.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1"
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
-              <div className="absolute inset-0 p-10 flex flex-col justify-end">
-                <span className="text-neon text-[10px] font-bold tracking-[0.3em] uppercase mb-2">
-                  {service.tag}
-                </span>
-                <h3 className="text-3xl font-black tracking-tight mb-4">{service.title}</h3>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-85 group-hover:opacity-100 transition-opacity"></div>
+              
+              <div className="absolute inset-0 p-8 sm:p-10 flex flex-col justify-end">
+                <div className="flex flex-wrap items-center gap-2 mb-2">
+                  <span className="text-neon text-[10px] font-bold tracking-[0.3em] uppercase bg-black/40 px-3 py-1 rounded-full backdrop-blur-sm border border-white/15">
+                    {service.tag}
+                  </span>
+                  <span className="text-white/60 text-[10px] font-bold uppercase py-1">
+                    • {service.price}
+                  </span>
+                </div>
+                
+                <h3 className="text-2xl sm:text-3xl font-black tracking-tight mb-4 group-hover:text-neon transition-colors">
+                  {service.title}
+                </h3>
+                
                 <motion.a 
                   href={WHATSAPP_LINK}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-fit flex items-center gap-2 text-sm font-bold text-white/60 group-hover:text-neon transition-colors"
+                  className="w-fit flex items-center gap-2 text-sm font-bold text-white/75 group-hover:text-neon transition-colors"
                 >
-                  BOOK SLOT <ArrowRight size={16} />
+                  BOOK INSTANT SLOT <ChevronRight size={16} className="text-neon group-hover:translate-x-1 transition-transform" />
                 </motion.a>
               </div>
             </motion.div>
@@ -273,14 +369,16 @@ const About = () => (
     <div className="max-w-7xl mx-auto px-6 lg:px-12">
       <div className="grid lg:grid-cols-2 gap-24 items-center">
         <div className="relative">
+          {/* Main Visual: Custom Generated Chill & Thrill Complex */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl"
           >
             <img 
-              src="https://images.unsplash.com/photo-1526676037777-05a232554f77?q=80&w=2070&auto=format&fit=crop" 
-              alt="About Us" 
+              id="about-main-image"
+              src="/src/assets/images/chill_thrill_complex_1782028093262.jpg" 
+              alt="Chill and Thrill Complex Arena Hanamkonda" 
               className="w-full h-[600px] object-cover"
               referrerPolicy="no-referrer"
             />
@@ -288,18 +386,47 @@ const About = () => (
           <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
           <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-accent/10 rounded-full blur-3xl"></div>
           
+          {/* Immersive Overlay 1: Real Action Box Cricket (Thrill Aspect) */}
           <motion.div 
-            initial={{ x: 50, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            className="absolute -bottom-10 -right-10 glass p-8 rounded-3xl shadow-2xl z-20 max-w-[240px]"
+            initial={{ opacity: 0, x: -60, rotate: -8 }}
+            whileInView={{ opacity: 1, x: 0, rotate: -4 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="absolute -left-12 bottom-12 w-48 h-64 rounded-2xl overflow-hidden shadow-2xl border-4 border-white z-20 group cursor-pointer hidden sm:block"
           >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center text-white">
-                <Star size={20} fill="currentColor" />
-              </div>
-              <span className="font-black text-accent">TOP RATED</span>
+            <img 
+              src="/src/assets/images/box_cricket_thrill_1782028114187.jpg" 
+              alt="Thrilling Box Cricket Match Hanamkonda" 
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+            <span className="absolute bottom-3 left-4 text-neon font-black text-xs uppercase tracking-widest">THRILL DECK</span>
+          </motion.div>
+
+          {/* Immersive Overlay 2: Delicious Gourmet Pizzas & Mocktails (Chill Aspect) */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50, y: 50 }}
+            whileInView={{ opacity: 1, x: 0, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="absolute -right-6 -bottom-6 glass p-4 rounded-[2rem] shadow-2xl z-20 max-w-[260px] border border-white/20"
+          >
+            <div className="rounded-2xl overflow-hidden h-32 mb-4">
+              <img 
+                src="/src/assets/images/drive_in_cafe_chill_1782028127304.jpg" 
+                alt="Delicious Gourmet food at Drive-In Cafe" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
             </div>
-            <p className="text-sm text-slate-600 font-medium">Hanamkonda's #1 Sports Complex with 5-star reviews.</p>
+            <div className="flex items-center gap-2 mb-2">
+              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
+                <Star size={16} fill="currentColor" />
+              </div>
+              <span className="font-black text-xs text-accent">CHILL DRIVE-IN CAFE</span>
+            </div>
+            <p className="text-[11px] text-slate-600 font-bold leading-relaxed">
+              Serving gourmet pizzas, burgers & mocktails directly to your vehicle or pitch-side dining area!
+            </p>
           </motion.div>
         </div>
 
